@@ -3,74 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image to PDF Converter</title>
+    <title>Image to PDF Converter - Fast & Easy</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <!-- Google AdSense Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2409918714405504" crossorigin="anonymous"></script>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
+            font-family: 'Poppins', sans-serif;
+            background: #f7f9fc;
+            margin: 0;
+            padding: 0;
         }
+
+        header {
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
         .ad-container {
             margin: 20px 0;
         }
-        input, button {
-            margin: 10px;
+
+        input[type="file"] {
             padding: 10px;
-            font-size: 16px;
+            margin: 20px 0;
+            width: 100%;
+            border: 2px dashed #4facfe;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #00f2fe;
+            color: #000;
+        }
+
+        #loading {
+            display: none;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<h2>Image to PDF Converter</h2>
+<header>
+    Image to PDF Converter
+</header>
 
-<!-- AdSense Ad (Top) -->
-<div class="ad-container">
-    <p>Advertisement</p>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-2409918714405504"
-         data-ad-slot="YOUR_AD_SLOT_ID"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
+<div class="container">
 
-<!-- Main Tool -->
-<input type="file" id="imageInput" accept="image/*" multiple><br>
-<button onclick="generatePDF()">Convert to PDF</button>
+    <!-- AdSense Ad (Top) -->
+    <div class="ad-container">
+        <p>Advertisement</p>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2409918714405504"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
 
-<!-- AdSense Ad (Bottom) -->
-<div class="ad-container">
-    <p>Advertisement</p>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-2409918714405504"
-         data-ad-slot="YOUR_AD_SLOT_ID"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <!-- Main Tool -->
+    <h3>Select Images to Convert</h3>
+    <input type="file" id="imageInput" accept="image/*" multiple><br>
+    <button onclick="generatePDF()">Convert to PDF</button>
+
+    <div id="loading">⏳ Generating your PDF, please wait...</div>
+
+    <!-- AdSense Ad (Bottom) -->
+    <div class="ad-container">
+        <p>Advertisement</p>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2409918714405504"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
 </div>
 
 <script>
 async function generatePDF() {
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF();
-
     const input = document.getElementById('imageInput');
+    const loading = document.getElementById('loading');
     const files = input.files;
 
     if (files.length === 0) {
         alert("Please select at least one image!");
         return;
     }
+
+    loading.style.display = "block";
 
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
@@ -87,6 +146,7 @@ async function generatePDF() {
         pdf.addImage(img, 'JPEG', 0, 0, pageWidth, pageHeight);
     }
 
+    loading.style.display = "none";
     pdf.save('download.pdf');
 }
 
