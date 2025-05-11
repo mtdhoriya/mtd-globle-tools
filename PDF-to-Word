@@ -529,7 +529,7 @@
         }
 
         .footer-links {
-            list-style: none;
+            list-style: auto;
         }
 
         .footer-links li {
@@ -538,7 +538,7 @@
 
         .footer-links a {
             color: #adb5bd;
-            text-decoration: none;
+            text-decoration: auto;
             transition: var(--transition);
         }
 
@@ -709,7 +709,7 @@
                     <!-- Replace with your AdSense ad unit code -->
                     <ins class="adsbygoogle"
                          style="display:block"
-                         data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                         data-ad-client="ca-pub-2409918714405504"
                          data-ad-slot="YOUR_AD_SLOT_ID"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
