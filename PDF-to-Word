@@ -21,7 +21,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PDF to Word Converter | Free Online Tool">
-    <meta name="twitter:description" content="Free online tool to convert PDF to editable Word documents with image compression.">
+    <meta name=" twitter: description" content="Free online tool to convert PDF to editable Word documents with image compression.">
     <meta name="twitter:image" content="https://mtdhoriya.github.io/mtd-globle-tools/images/pdf-to-word-twitter.jpg">
     
     <!-- Structured Data / Schema Markup -->
@@ -776,8 +776,8 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="">Features</a></li>
+                        <li><a href="aboutus.html">About us</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
